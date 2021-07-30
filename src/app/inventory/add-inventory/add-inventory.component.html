@@ -1,0 +1,17 @@
+<div>
+    <form>
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+
+        <button (click)='addCard()'>Add</button>
+    </form>
+</div>
+
+
+<div *ngFor='let card of cards | async'>
+    <div>Id {{ cards.id }}</div>
+    <div>Id {{ cards.firstName }}</div>
+</div>
