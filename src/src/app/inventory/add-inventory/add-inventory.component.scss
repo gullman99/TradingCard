@@ -1,0 +1,50 @@
+.mainForm {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12) !important;
+    border-radius: 0.2rem;
+
+    h2 {
+        margin-top: 0;
+        text-align: center;
+    }
+}
+
+.formField {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem;
+
+    div {
+        width: 100%;
+    }
+
+    input {
+        width: 100%;
+        border-radius: 0.2rem;
+        border: 1px solid grey;
+        padding-left: 0.5rem;
+    }
+}
+
+.submitBtn {
+    margin-top: 2rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    padding: 2rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12) !important;
+
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

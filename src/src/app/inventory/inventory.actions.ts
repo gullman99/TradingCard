@@ -1,5 +1,5 @@
-import { Action } from "@ngrx/store";
-import { Card } from "./inventory.reducer";
+import { Action } from '@ngrx/store';
+import { Card } from './inventory.reducer';
 
 export const CREATE = '[Card] Create';
 export const UPDATE = '[Card] Update';

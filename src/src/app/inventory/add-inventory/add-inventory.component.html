@@ -1,0 +1,35 @@
+<div class="mainForm">
+    <h2>Add Card</h2>
+    <div class="formField">
+        <div>First Name:</div>
+        <input type="text" [(ngModel)]="fName">
+    </div>
+    <div class="formField">
+        <div>Last Name:</div>
+        <input type="text" [(ngModel)]="lName">
+    </div>
+    <!-- <div class="formField">
+        <div>Player Number:</div>
+        <input type="text" [(ngModel)]="fName">
+    </div>
+    <div class="formField">
+        <div>Team Name:</div>
+        <input type="text" [(ngModel)]="fName">
+    </div> -->
+    <div class="formField">
+        <div>Estimated value:</div>
+        <input type="number" [(ngModel)]="estimatedValue">
+    </div>
+
+    <button class="submitBtn" (click)='addCard()'>Add</button>
+</div>
+
+<div style="margin-top: 2rem;">Cards</div>
+
+<div class="cardContainer">
+    <div class="card" *ngFor='let card of cards | async'>
+        <div>Id: {{ card.id }}</div>
+        <div>Name: {{ card.firstName }} {{ card.lastName }}</div>
+        <div>Estimated Value: {{ card.value }}</div>
+    </div>
+</div>
