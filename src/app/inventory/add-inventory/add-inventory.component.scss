@@ -1,3 +1,5 @@
+
+
 .mainForm {
     display: flex;
     flex-direction: column;
@@ -11,29 +13,20 @@
     }
 }
 
-.formField {
+.formField{    
     display: flex;
-    flex-direction: row;
-    padding: 0.5rem;
-
-    div {
-        width: 100%;
-    }
-
-    input {
-        width: 100%;
-        border-radius: 0.2rem;
-        border: 1px solid grey;
-        padding-left: 0.5rem;
-    }
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
 }
+
 
 .submitBtn {
     margin-top: 2rem;
 }
 
 .card {
-    display: flex;
+    display: block;
     flex-direction: column;
     width: 50%;
     justify-content: center;
@@ -48,3 +41,27 @@
     flex-direction: column;
     align-items: center;
 }
+
+@media screen and (max-width: 768px) {
+    .formField {
+        display: flex;
+        flex-direction: row;
+        padding: 0.5rem;
+    
+        div {
+            width: 100%;
+        }
+    
+        input {
+            width: 100%;
+            border-radius: 0.2rem;
+            border: 1px solid grey;
+            padding-left: 0.5rem;
+        }
+    }
+  }
+
+// display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     margin: 4rem;

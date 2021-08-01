@@ -15,18 +15,17 @@ export class AddInventoryComponent implements OnInit {
   cards: any = [];
   cardId = 0;
   form: FormGroup;
-  fName: string;
-  lName: string;
-  estimatedValue: number;
+  totalEstimatedVal: number;
 
   constructor(public store: Store<fromInventory.State>) {
-    this.fName = '';
-    this.lName = '';
-    this.estimatedValue = 0;
+    this.totalEstimatedVal = 0;
+
     this.form = new FormGroup({
-      firstName: new FormControl(null, [
-        Validators.required,
-      ])
+      firstName: new FormControl(null, [Validators.required]),
+      lastName: new FormControl(null, [Validators.required]),
+      estimatedValue: new FormControl(null),
+      playerNumber: new FormControl(null, [Validators.required]),
+      teamName: new FormControl(null, [Validators.required]),
     })
    }
 
@@ -36,23 +35,32 @@ export class AddInventoryComponent implements OnInit {
 
   addCard(): void {
     this.cardId = this.cardId + 1;
-    console.warn('add');
     const card: any = {
       id: this.cardId,
-      firstName: this.fName,
-      lastName: this.lName,
-      value: this.estimatedValue
+      firstName: this.form.controls.firstName.value,
+      lastName: this.form.controls.lastName.value,
+      estimatedValue: this.form.controls.estimatedValue.value,
+      playerNumber: this.form.controls.playerNumber.value,
+      teamName: this.form.controls.teamName.value
     };
 
     this.store.dispatch( new actions.Create(card));
-
     this.clearForm();
+    this.totalEstimatedValue();
+  }
+
+  totalEstimatedValue(): void{
+    let cards: any;
+    let value: any = 0;
+    this.store.select(fromInventory.selectAll).subscribe(data => cards = data);
+    cards.forEach((val: any) => {
+      value = value + val.estimatedValue
+    });
+    this.totalEstimatedVal = value
   }
 
   clearForm(): void {
-    this.fName = '';
-    this.lName = '';
-    this.estimatedValue = 0;
+    this.form.reset()
   }
 
 }

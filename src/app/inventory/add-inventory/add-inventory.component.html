@@ -1,35 +1,46 @@
-<div class="mainForm">
-    <h2>Add Card</h2>
-    <div class="formField">
-        <div>First Name:</div>
-        <input type="text" [(ngModel)]="fName">
-    </div>
-    <div class="formField">
-        <div>Last Name:</div>
-        <input type="text" [(ngModel)]="lName">
-    </div>
-    <!-- <div class="formField">
-        <div>Player Number:</div>
-        <input type="text" [(ngModel)]="fName">
-    </div>
-    <div class="formField">
-        <div>Team Name:</div>
-        <input type="text" [(ngModel)]="fName">
-    </div> -->
-    <div class="formField">
-        <div>Estimated value:</div>
-        <input type="number" [(ngModel)]="estimatedValue">
-    </div>
+<div class="mainContainer">
+    <div class="mainForm">
+        <h2>Add Card</h2>
+        <form [formGroup]="form">
+            <div class="formField">
+                <div>First Name:</div>
+                <input type="text" formControlName="firstName">
+            </div>
+            <div class="formField">
+                <div>Last Name:</div>
+                <input type="text" formControlName="lastName">
+            </div>
+            <div class="formField">
+            <div>Player Number:</div>
+            <input type="text" formControlName="playerNumber">
+            </div>
+            <div class="formField">
+                <div>Team Name:</div>
+                <input type="text" formControlName="teamName">
+            </div> 
+            <div class="formField">
+                <div>Estimated value:</div>
+                <input type="number" formControlName="estimatedValue">
+            </div>
+        </form>
+        
+        <button class="submitBtn" (click)='addCard()' [disabled]="!this.form.valid">Add</button>
 
-    <button class="submitBtn" (click)='addCard()'>Add</button>
-</div>
-
-<div style="margin-top: 2rem;">Cards</div>
-
-<div class="cardContainer">
-    <div class="card" *ngFor='let card of cards | async'>
-        <div>Id: {{ card.id }}</div>
-        <div>Name: {{ card.firstName }} {{ card.lastName }}</div>
-        <div>Estimated Value: {{ card.value }}</div>
+        <div>
+            Total Estimated Card Value: {{ totalEstimatedVal }}
+        </div>
     </div>
+    
+    <div style="margin-top: 2rem;">Cards</div>
+    
+    <div class="cardContainer">
+        <div class="card" *ngFor='let card of cards | async'>
+            <div>Id: {{ card.id }}</div>
+            <div>Name: {{ card.firstName }} {{ card.lastName }}</div>
+            <div>PlayerNumber: {{card.playerNumber}}</div>
+            <div>Team Name: {{card.teamName}}</div>
+            <div>Estimated Value: {{ card.estimatedValue }}</div>
+        </div>
+    </div>
+    
 </div>

@@ -6,10 +6,9 @@ export interface Card {
     id: string;
     firstName: string;
     lastName: string;
-    value: number;
-    number: number;
-    team: string;
-
+    estimatedValue: number;
+    playerNumber: number;
+    teamName: string;
 }
 
 export const inventoryAdapter = createEntityAdapter<Card>();
@@ -46,13 +45,6 @@ export function inventoryReducer(
 }
 
 export const getInventoryState = createFeatureSelector<State>('inventory');
-
-// export const {
-//     selectIds,
-//     selectEntities,
-//     selectAll,
-//     selectTotal
-// } = inventoryAdapter.getSelectors(getInventoryState);
 
 export const {
     selectIds,
