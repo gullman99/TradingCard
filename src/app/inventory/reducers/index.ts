@@ -1,5 +1,5 @@
 import { ActionReducerMap } from '@ngrx/store';
-import { inventoryReducer } from '../inventory.reducer';
+import { inventoryReducer, Card } from '../inventory.reducer';
 
 export const rootReducer = {}
 

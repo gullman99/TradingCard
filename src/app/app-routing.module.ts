@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.component';
+import { AboutComponent } from './about/about.component';
+
 
 const routes: Routes = [
   {
-    path: 'inventory',
+    path: '',
     component: AddInventoryComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
   }
 ];
 

@@ -1,14 +1,21 @@
+/*
+Configure reducers
+*/
+
+
 import * as actions from './inventory.actions';
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
 import { createFeatureSelector } from '@ngrx/store';
+
 
 export interface Card {
     id: string;
     firstName: string;
     lastName: string;
-    estimatedValue: number;
+    estimatedvalue: number;
     playerNumber: number;
     teamName: string;
+    img: any;
 }
 
 export const inventoryAdapter = createEntityAdapter<Card>();
@@ -23,21 +30,23 @@ const defaultCard = {
 
 export const initialState: State = inventoryAdapter.getInitialState(defaultCard);
 
+//Defines inventory reducer with create, update, delete actions
 export function inventoryReducer(
     state: State = initialState,
-    action: any = actions.CREATE
+    action: any
 ): any {
     switch (action.type) {
         case actions.CREATE:
             console.warn(action);
             return inventoryAdapter.addOne(action.card, state);
-        // case actions.UPDATE:
-        //     return inventoryAdapter.updateOne({
-        //         id: action.id,
-        //         changes: action.changes
-        //     }, state);
-        // case actions.DELETE:
-        //     return inventoryAdapter.removeOne(action.id, state);
+        case actions.UPDATE:
+            console.warn(action);
+            return inventoryAdapter.updateOne({
+                id: action.id,
+                changes: action.changes
+            }, state);
+        case actions.DELETE:
+            return inventoryAdapter.removeOne(action.id, state);
 
         default:
             return state;
